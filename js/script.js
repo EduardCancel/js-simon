@@ -27,7 +27,25 @@ function generateRandomNumber() {
 
     console.log(numbGenerate); // Logs the generated numbers correctly
     numberListEl.innerHTML = `<ul>${listItems}</ul>`;
+
+    // Add countdown
+    const intervalID = setInterval(function () {
+        timer--;
+        countdownEl.innerText = timer;
+    
+        if (timer === 0) {
+            clearInterval(intervalID);
+            numberListEl.classList.add("d-none");
+            answerFormEl.classList.remove("d-none");
+        }
+    }, 1000);
+    
 }
 
 // Call the function to generate numbers
 generateRandomNumber();
+
+
+
+
+
