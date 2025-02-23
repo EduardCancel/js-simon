@@ -31,7 +31,7 @@ numberListEl.innerHTML = `<ul>${listItems}</ul>`;
 
 
     // Countdown timer 
-    const intervalId = setInterval(function(){
+    const intervalID = setInterval(function(){
         timer --;
         countdownEl.innerText = timer;
 
@@ -43,6 +43,39 @@ numberListEl.innerHTML = `<ul>${listItems}</ul>`;
     }, 1000)
 }
 
+
+// Start generate random number
+generateRandomNumber();
+
+// Add eventListener at form for the submit
+answerFormEl.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let userInput = [];
+    let inputEl = document.querySelectorAll("#input-group input");
+
+    for (let i = 0; i < inputEl.length; i++) {
+        userInput.push(parseInt(inputEl[i].value));
+    }
+
+    let correctNumbers = [];
+    let wrNumbers = [];
+
+    for (let i = 0; i < userInput.length; i++) {
+        if (numbGenerate.includes(userInput[i])) {
+            correctNumbers.push(userInput[i]);
+        } else {
+            wrNumbers.push(userInput[i]);
+        }
+    }
+
+    if (correctNumbers.length > 0) {
+        alert(`Hai vinto indovinando i numeri: ${correctNumbers.join(", ")}`);
+    } else {
+        alert(`Non hai azzeccato nessun numero, GG!`);
+    }
+    console.log(`Hai indovinato ${correctNumbers.length} numeri: ${correctNumbers.join(", ")}`);
+});
 
 
 
