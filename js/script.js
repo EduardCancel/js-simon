@@ -8,3 +8,24 @@ const btnEl = document.querySelector('.btn'); // Seleziona il primo bottone con 
 const messageEl = document.getElementById('message');
 
 console.log(countdownEl, instructionsEl, numberListEl, answerFormEl, inputGroupEl, btnEl, messageEl);
+
+// Add variables 
+let numbGenerate = [];
+let listItems = '';
+let timer = 20;
+
+// Add random generator function
+
+function generateRandomNumber (){
+    numbGenerate = [];
+    listItems = ''
+    for (let i = 0; i < 5; i++){
+        const randomNumber =Math.round(Math.random() * 50) + 1;
+        numbGenerate.push(randomNumber)
+        listItems += `<li>${randomNumber}</li>`;
+
+    }
+}
+
+console.log(numbGenerate);
+numberListEl.innerHTML = `<ul>${listItems}</ul>`;
