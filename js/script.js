@@ -25,7 +25,25 @@ function generateRandomNumber (){
         listItems += `<li>${randomNumber}</li>`;
 
     }
+
+    console.log(numbGenerate);
+numberListEl.innerHTML = `<ul>${listItems}</ul>`;
+
+
+    // Countdown timer 
+    const intervalId = setInterval(function(){
+        timer --;
+        countdownEl.innerText = timer;
+
+        if(timer === 0){
+            clearInterval(intervalID);
+            numberListEl.classList.add("d-none");
+            answerFormEl.classList.remove("d-none");
+        }
+    }, 1000)
 }
 
-console.log(numbGenerate);
-numberListEl.innerHTML = `<ul>${listItems}</ul>`;
+
+
+
+
